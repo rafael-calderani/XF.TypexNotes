@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XF.VKNG.Notes.iOS", "XF.VKN
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XF.VKNG.Notes.UWP", "XF.VKNG.Notes\XF.VKNG.Notes.UWP\XF.VKNG.Notes.UWP.csproj", "{F62F4D12-B19A-48AA-B010-42F3F565F2AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XF.VKNG.Notes", "XF.VKNG.Notes\XF.VKNG.Notes\XF.VKNG.Notes.csproj", "{E317C5FB-5D5E-4B75-AFC3-973FE2715617}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XF.VKNG.Notes", "XF.VKNG.Notes\XF.VKNG.Notes\XF.VKNG.Notes.csproj", "{E317C5FB-5D5E-4B75-AFC3-973FE2715617}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
