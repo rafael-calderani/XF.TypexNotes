@@ -10,6 +10,7 @@ using XF.VKNG.Notes.ViewModel;
 
 namespace XF.VKNG.Notes {
     public partial class App : Application {
+     
         #region ViewModels
         public static UsuarioViewModel UsuarioVM { get; set; }
         #endregion

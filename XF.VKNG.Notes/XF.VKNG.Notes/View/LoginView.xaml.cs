@@ -15,6 +15,11 @@ namespace XF.VKNG.Notes.View {
         }
 
         private void Login_Clicked(object sender, EventArgs e) {
+
+
+
+            var page = new ListagemNoteView(); 
+            Navigation.PushAsync(page);
         }
     }
 }
