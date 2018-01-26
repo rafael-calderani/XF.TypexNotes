@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XF.VKNG.Notes.Model;
 
 namespace XF.VKNG.Notes.View {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -14,11 +15,26 @@ namespace XF.VKNG.Notes.View {
             InitializeComponent();
         }
 
-        private void Login_Clicked(object sender, EventArgs e) {
+        private async void btnLogin_Clicked(object sender, EventArgs e) {
+            Usuario usuario = new Usuario() {
+                Email = txtEmail.Text,
+                Senha = txtPassword.Text
+            };
+            bool loginSuccessful = await Usuario.Login(usuario);
 
+            if (!loginSuccessful) {
+                // TODO: Show popup message at the top of the screen
+                await DisplayAlert("Login", "Email ou senha inválidos, favor tentar novamente.", "Ok");
+                return;
+            }
 
+            var page = new ListagemNoteView();
+            await Navigation.PushAsync(page);
+        }
 
-            var page = new ListagemNoteView(); 
+        private void btnRegister_Clicked(object sener, EventArgs e) {
+
+            var page = new CadastroUsuarioView();
             Navigation.PushAsync(page);
         }
     }

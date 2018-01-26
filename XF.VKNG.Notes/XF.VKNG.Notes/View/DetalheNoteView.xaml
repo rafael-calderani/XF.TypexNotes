@@ -4,14 +4,19 @@
              x:Class="XF.VKNG.Notes.View.DetalheNoteView">
     <ContentPage.Content>
         <RelativeLayout x:Name="RootLayout" >
-            <StackLayout Orientation="Vertical"  Margin="25" Padding="0">
-                <Label Text="titulo da nota" FontSize="20" VerticalTextAlignment="Center"></Label>
-                <Editor Text="Descricao da nota" Keyboard="Text" ></Editor>
-                <Button x:Name="buttonSalvar" Text="Salvar" Clicked="buttonSalvar_Clicked"  Margin="25" ></Button>
-            </StackLayout>
-            
-                
+            <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="0">
 
+                <Entry x:Name="txtTitulo" Placeholder="Titulo da nota" FontSize="20" Text="{Binding Titulo, Mode=TwoWay}" />
+
+                <Editor x:Name="txtDetalhes" VerticalOptions="FillAndExpand" Keyboard="Chat" Text="{Binding Detalhes, Mode=TwoWay}"></Editor>
+                
+                <StackLayout Orientation="Horizontal" Margin="0">
+                    <Label Text="Protegida por senha?" />
+                    <Switch x:Name="swSenha" IsToggled="False" />
+                </StackLayout>
+                <Entry Placeholder="Senha" IsPassword="True" Text="{Binding Senha, Mode=TwoWay}" IsVisible="{Binding Source={x:Reference swSenha}, Path=IsToggled}" />
+                <Button x:Name="btnSalvar" Text="Salvar" Clicked="btnSalvar_ClickedAsync" />
+            </StackLayout>
         </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>

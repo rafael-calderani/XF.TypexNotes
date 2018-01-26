@@ -2,27 +2,32 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Title="Suas Anotações"
+             x:Name="pageNoteList"
              x:Class="XF.VKNG.Notes.View.ListagemNoteView">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+ Nova Nota" Clicked="tbNewNote_Clicked" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <ListView x:Name="listagemNote"  Margin="25" ItemTapped="listagemNote_ItemTapped">
-            
+        <ListView x:Name="listagemNote" Margin="20" SelectedItem="{Binding Note}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <ViewCell.View>
-                           
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="MenuOptions" BindingContext="{Binding BindingContext, Source={x:Reference Name=pageNoteList}}" 
+                                          Command="{Binding OnMenuOptionsCMD}" CommandParameter="{Binding Note}" />
+                            <MenuItem Text="Detalhes" BindingContext="{Binding BindingContext, Source={x:Reference Name=pageNoteList}}"
+                                          Command="{Binding OnDetalheCMD}" CommandParameter="{Binding Note}" />
+                        </ViewCell.ContextActions>
+                        <ViewCell.View>                           
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding Titulo}" FontSize="20" VerticalTextAlignment="Center"></Label>
-                                <Label Text="   " VerticalTextAlignment="Center"></Label>
-                                <Label Text="   " VerticalTextAlignment="Center"></Label>
+                                <Label Text="{Binding Titulo}" FontSize="20" VerticalTextAlignment="Center" />
+                                <Label Text="{Binding CriadoEm}" FontSize="20" VerticalTextAlignment="Center" />
                             </StackLayout>
                         </ViewCell.View>
-                        
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
        
         </ListView>
     </ContentPage.Content>
-
 </ContentPage>

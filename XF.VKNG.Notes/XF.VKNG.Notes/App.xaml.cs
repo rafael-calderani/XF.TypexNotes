@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Xamarin.Forms;
-
-using XF.VKNG.Notes.View;
+﻿using Xamarin.Forms;
 using XF.VKNG.Notes.ViewModel;
 
 namespace XF.VKNG.Notes {
     public partial class App : Application {
-     
+
+        public static string typexServiceURL = "http://vkngnotes.azurewebsites.net/";
+
         #region ViewModels
         public static UsuarioViewModel UsuarioVM { get; set; }
         #endregion

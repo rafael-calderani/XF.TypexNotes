@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XF.VKNG.Notes.View.SobreView"
+             Title="TypeX - Sobre">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Olá! TypeX foi desenvolvido utilizando Xamarin Forms por:" HorizontalOptions="CenterAndExpand" />
+            <Label Text="- Alexandre Souza" HorizontalOptions="CenterAndExpand" />
+            <Label Text="- José Pereira" HorizontalOptions="CenterAndExpand" />
+            <Label Text="- Rafael Arnosti" HorizontalOptions="CenterAndExpand" />
+            <Label Text="- Rafael S. Calderani" HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,15 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="XF.VKNG.Notes.View.LoginView"
-             Title="VKNG Notes - Login">
+             x:Class="XF.VKNG.Notes.View.CadastroUsuarioView">
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center">
-            <Image x:Name="imgIcon" Aspect="AspectFit" HorizontalOptions="FillAndExpand" HeightRequest="120"/>
             <Entry x:Name="txtEmail" Placeholder="E-mail" Keyboard="Email" />
             <Entry x:Name="txtPassword" Placeholder="Password" IsPassword="True" />
-            <Button x:Name="btnLogin" Text="Login" Clicked="btnLogin_Clicked" />
-            <Button x:Name="btnRegister" Text="Cadastrar Usuário" Style="{StaticResource buttonSimple}" HorizontalOptions="End" Clicked="btnRegister_Clicked" />
+            <Entry x:Name="txtConfirmPassword" Placeholder="Confirmar Password" IsPassword="True" />
+            <Button x:Name="btnRegister" Text="Cadastrar" Clicked="btnRegister_Clicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
