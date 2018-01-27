@@ -1,18 +1,22 @@
-﻿using Xamarin.Forms;
+﻿using System.Threading.Tasks;
+using Xamarin.Forms;
 using XF.VKNG.Notes.ViewModel;
 
 namespace XF.VKNG.Notes {
     public partial class App : Application {
 
         public static string typexServiceURL = "http://vkngnotes.azurewebsites.net/";
+        private static MasterDetailPage mainPage;
 
-        #region ViewModels
-        public static UsuarioViewModel UsuarioVM { get; set; }
-        #endregion
+        public static async Task Navigate(Page page) {
+            mainPage.IsPresented = false;
+            await mainPage.Detail.Navigation.PushAsync(page);
+        }
+
         public App() {
             InitializeComponent();
-
-            MainPage = new NavigationPage(new View.LoginView() { BindingContext = App.UsuarioVM });
+            mainPage = new View.MainView();
+            MainPage = mainPage;
         }
 
         protected override void OnStart() {

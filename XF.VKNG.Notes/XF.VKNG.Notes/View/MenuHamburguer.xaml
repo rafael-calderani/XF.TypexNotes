@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XF.VKNG.Notes.View.MenuHamburguer"
+             Title="TypeX Menu">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button x:Name="btnNotes" Text="Anotações" />
+            <Button x:Name="btnShare" Text="Compartilhar o TypeX" />
+            <Button x:Name="btnDelete" Text="Apagar Tudo" />
+            <Button x:Name="btnAbout" Text="Sobre o TypeX" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

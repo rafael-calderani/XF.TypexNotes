@@ -31,7 +31,7 @@ namespace XF.VKNG.Notes.Model {
 
         public DateTime CriadoEm { get; set; }
 
-        public Guid UserId { get; set; }
+        public int UserId { get; set; }
 
         public static async Task<List<Note>> List() {
             List<Note> noteList = new List<Note>();
@@ -53,11 +53,12 @@ namespace XF.VKNG.Notes.Model {
         public static async Task<bool> Insert(Note n) {
             bool result = false;
             n.CriadoEm = DateTime.Now;
+            n.UserId = Usuario.Atual.Id;
 
             using (HttpClient httpClient = new HttpClient()) {
                 string noteJson = JsonConvert.SerializeObject(n);
 
-                HttpResponseMessage response = await httpClient.PostAsync(apiURL, new StringContent(noteJson));
+                HttpResponseMessage response = await httpClient.PostAsync(apiURL, new StringContent(noteJson, Encoding.UTF8, "application/json"));
 
                 result = response.IsSuccessStatusCode;
             }
@@ -70,7 +71,7 @@ namespace XF.VKNG.Notes.Model {
             // TODO: check this update method
             using (HttpClient httpClient = new HttpClient()) {
                 string noteJson = JsonConvert.SerializeObject(n);
-                HttpResponseMessage response = await httpClient.PostAsync(apiURL, new StringContent(noteJson));
+                HttpResponseMessage response = await httpClient.PutAsync(apiURL + "/" + n.Id, new StringContent(noteJson));
 
                 result = response.IsSuccessStatusCode;
             }

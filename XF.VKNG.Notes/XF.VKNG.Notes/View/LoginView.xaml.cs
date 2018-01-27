@@ -29,13 +29,11 @@ namespace XF.VKNG.Notes.View {
             }
 
             var page = new ListagemNoteView();
-            await Navigation.PushAsync(page);
+            await App.Navigate(page);
         }
 
-        private void btnRegister_Clicked(object sener, EventArgs e) {
-
-            var page = new CadastroUsuarioView();
-            Navigation.PushAsync(page);
+        private async void btnRegister_Clicked(object sener, EventArgs e) {
+            await App.Navigate(new CadastroUsuarioView());
         }
     }
 }
