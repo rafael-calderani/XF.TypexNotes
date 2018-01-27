@@ -2,14 +2,28 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XF.VKNG.Notes.View.SobreView"
-             Title="TypeX - Sobre">
+             Title="Sobre o TypeX"
+             BackgroundColor="{StaticResource backgroundColor}">
+    
     <ContentPage.Content>
+        <ScrollView Orientation="Vertical">
+           
         <StackLayout>
-            <Label Text="Olá! TypeX foi desenvolvido utilizando Xamarin Forms por:" HorizontalOptions="CenterAndExpand" />
-            <Label Text="- Alexandre Souza" HorizontalOptions="CenterAndExpand" />
-            <Label Text="- José Pereira" HorizontalOptions="CenterAndExpand" />
-            <Label Text="- Rafael Arnosti" HorizontalOptions="CenterAndExpand" />
-            <Label Text="- Rafael S. Calderani" HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+                <Image Source="typexlogoandlabel.png" HeightRequest="120" Margin="0,10,0,0" HorizontalOptions="Center"></Image>
+                <Label Text="Olá! TypeX é um aplicativo desenvolvido como atividade acadêmica na disciplina de 'Desenvolvimento Mobile Híbrido utilizando C# e F# na plataforma Xamarin' para a 13ª turma do MBA em Desenvolvimento de Aplicações e Games para Dispositivos Móveis e Internet das Coisas, da Faculdade FIAP - SP"
+                    HorizontalOptions="CenterAndExpand" 
+                       HorizontalTextAlignment="Center" 
+                    FontSize="Medium"
+                    FontAttributes="None"
+                       Margin="40" /> 
+            
+            <Label Text="Participaram do projeto:" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" Margin="0,0,0,20"/>
+                <Label Text="Alexandre Souza" HorizontalOptions="CenterAndExpand" Margin="0,5,0,5" />
+                <Label Text="José Pereira" HorizontalOptions="CenterAndExpand" Margin="0,5,0,5"/>
+                <Label Text="Rafael Arnosti" HorizontalOptions="CenterAndExpand" Margin="0,5,0,5" />
+                <Label Text="Rafael S. Calderani" HorizontalOptions="CenterAndExpand"  Margin="0,5,0,50"/>
+                <Label Text="- - - - x - - - -" HorizontalOptions="CenterAndExpand"  Margin="0,5,0,50"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

@@ -104,6 +104,20 @@
     <None Include="XF.VKNG.Notes.UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="abouticon24x24.png" />
+    <Content Include="abouticon24x24dark.png" />
+    <Content Include="cancelicon24x24.png" />
+    <Content Include="cancelicon24x24dark.png" />
+    <Content Include="deleteicon24x24.png" />
+    <Content Include="deleteicon24x24dark.png" />
+    <Content Include="editicon24x24.png" />
+    <Content Include="editicon24x24dark.png" />
+    <Content Include="exiticon24x24.png" />
+    <Content Include="exiticon24x24dark.png" />
+    <Content Include="lockicon24x24.png" />
+    <Content Include="menuheader.png" />
+    <Content Include="notesicon24x24.png" />
+    <Content Include="notesicon24x24dark.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-100.png" />
     <Content Include="Assets\LockScreenLogo.scale-125.png" />
@@ -136,6 +150,14 @@
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="saveicon24x24.png" />
+    <Content Include="saveicon24x24dark.png" />
+    <Content Include="shareicon24x24.png" />
+    <Content Include="shareicon24x24dark.png" />
+    <Content Include="twittericon24x24.png" />
+    <Content Include="typexlogo128x128.png" />
+    <Content Include="typexlogoandlabel.png" />
+    <Content Include="unlockicon24x24.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

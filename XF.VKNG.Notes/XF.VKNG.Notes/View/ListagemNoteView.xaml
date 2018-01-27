@@ -20,14 +20,13 @@
                         </ViewCell.ContextActions>
                         <ViewCell.View>                           
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding Titulo}" FontSize="20" VerticalTextAlignment="Center" />
-                                <Label Text="{Binding CriadoEm}" FontSize="20" VerticalTextAlignment="Center" />
+                                <Label Text="{Binding Titulo}" FontSize="Medium" VerticalTextAlignment="Center" />
+                                <Label Text="{Binding CriadoEm}" FontSize="Medium" VerticalTextAlignment="Center" />
                             </StackLayout>
                         </ViewCell.View>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
-       
         </ListView>
     </ContentPage.Content>
 </ContentPage>

@@ -4,25 +4,123 @@
              x:Class="XF.VKNG.Notes.App">
 	<Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="defaultButtonColor">#1E90FF</Color>
-            <Color x:Key="defaultButtonTextColor">#FFF</Color>
+
+            <!-- Cores -->
+            <Color x:Key="backgroundColor">#F9F8F8</Color>
+            <Color x:Key="placeholderColor">#999999</Color>
+            <Color x:Key="defaulttextColor">#000000</Color>
+            
+            <Color x:Key="entryBackgroundColor">White</Color>
+            <Color x:Key="textNoteColor">#4D4D4D</Color>
+            <Color x:Key="listtextColor">#4D4D4D</Color>
+            <Color x:Key="defaultButtonColor">#FF6600</Color>
+            <Color x:Key="defaultButtonTextColor">White</Color>
+            
+            <Color x:Key="alertButtonColor">#FF6600</Color>
+            <Color x:Key="twitterButtonColor">#00AFEF</Color>
+            <Color x:Key="simpleButtonColor">White</Color>
+            <Color x:Key="simpleButtonTextColor">#00AFEF</Color>
+
             <Style TargetType="Button">
-                <Setter Property="BackgroundColor" Value="{StaticResource defaultButtonColor}" />
-                <Setter Property="TextColor" Value="{StaticResource defaultButtonTextColor}" />
-                <Setter Property="Margin" Value="0, 40, 0, 0" />
+                <Setter Property="TextColor" Value="{StaticResource defaultButtonTextColor}"></Setter>
+                <Setter Property="BackgroundColor" Value="{StaticResource defaultButtonColor}"></Setter>
+                <Setter Property="FontSize" Value="Small"></Setter>
+                <Setter Property="FontAttributes" Value="Bold"></Setter>
+                <Setter Property="Margin" Value="0,3,0,3"></Setter>
             </Style>
+
+            <Style TargetType="Entry">
+                <Setter Property="TextColor" Value="{StaticResource defaulttextColor}"></Setter>
+                <Setter Property="PlaceholderColor" Value="{StaticResource placeholderColor}"></Setter>
+                <Setter Property="FontAttributes" Value="None"></Setter>
+                <Setter Property="BackgroundColor" Value="{StaticResource entryBackgroundColor}"></Setter>
+                <Setter Property="Margin" Value="0,3,0,3"></Setter>
+            </Style>
+
             <Style x:Key="buttonSimple" TargetType="Button">
-                <Setter Property="TextColor" Value="#1E90FF" />
+                <Setter Property="TextColor" Value="{StaticResource simpleButtonTextColor}" />
                 <Setter Property="BorderColor" Value="Transparent" />
-                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="BackgroundColor" Value="{StaticResource simpleButtonColor}" />
                 <Setter Property="Margin" Value="0, 10, 0, 0" />
+                <Setter Property="HorizontalOptions" Value="EndAndExpand" />
             </Style>
+            
             <Style TargetType="StackLayout">
-                <Setter Property="Margin" Value="20" />
+                <Setter Property="Margin" Value="10,20,10,20" />
             </Style>
+            
             <Style TargetType="Label">
                 <Setter Property="Margin" Value="0, 0, 20, 0" />
+                <Setter Property="TextColor" Value="{StaticResource defaulttextColor}"></Setter>
             </Style>
+
+            <!-- Estilos -->
+            <Style x:Key="TwitterButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource twitterButtonColor}"></Setter>
+                <Setter Property="Image" Value="twittericon24x24.png"></Setter>
+            </Style>
+            <Style x:Key="btnUnlock" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource defaultButtonColor}"></Setter>
+                <Setter Property="Image" Value="unlockicon24x24.png"></Setter>
+                <Setter Property="HorizontalOptions" Value="Start"></Setter>
+            </Style>
+            <Style x:Key="btnLock" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource defaultButtonColor}"></Setter>
+                <Setter Property="Image" Value="lockicon24x24.png"></Setter>
+                <Setter Property="HorizontalOptions" Value="Start"></Setter>
+            </Style>
+            <Style x:Key="btnSave" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource defaultButtonColor}"></Setter>
+                <Setter Property="Image" Value="saveicon24x24.png"></Setter>
+                <Setter Property="HorizontalOptions" Value="Start"></Setter>
+            </Style>
+            <Style x:Key="btnEdit" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource defaultButtonColor}"></Setter>
+                <Setter Property="Image" Value="editicon24x24.png"></Setter>
+                <Setter Property="HorizontalOptions" Value="Start"></Setter>
+            </Style>
+            <Style x:Key="btnCancel" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource defaultButtonColor}"></Setter>
+                <Setter Property="Image" Value="cancelicon24x24.png"></Setter>
+                <Setter Property="HorizontalOptions" Value="Start"></Setter>
+            </Style>
+            <Style x:Key="btnDelete" TargetType="Button">
+                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="Image" Value="deleteicon24x24dark.png"></Setter>
+                <Setter Property="HorizontalOptions" Value="Start"></Setter>
+                <Setter Property="BorderColor" Value="Transparent"></Setter>
+                <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+            </Style>
+            <Style x:Key="btnNotes" TargetType="Button">
+                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="Image" Value="notesicon24x24dark.png"></Setter>
+                <Setter Property="HorizontalOptions" Value="Start"></Setter>
+                <Setter Property="BorderColor" Value="Transparent"></Setter>
+                <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+            </Style>
+            <Style x:Key="btnShare" TargetType="Button">
+                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="Image" Value="shareicon24x24dark.png"></Setter>
+                <Setter Property="HorizontalOptions" Value="Start"></Setter>
+                <Setter Property="BorderColor" Value="Transparent"></Setter>
+                <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+            </Style>
+            <Style x:Key="btnAbout" TargetType="Button">
+                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="Image" Value="abouticon24x24dark.png"></Setter>
+                <Setter Property="HorizontalOptions" Value="Start"></Setter>
+                <Setter Property="BorderColor" Value="Transparent"></Setter>
+                <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+            </Style>
+            <Style x:Key="btnExit" TargetType="Button">
+                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="Image" Value="exiticon24x24dark.png"></Setter>
+                <Setter Property="HorizontalOptions" Value="Start"></Setter>
+                <Setter Property="BorderColor" Value="Transparent"></Setter>
+                <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+            </Style>
+            
+            
         </ResourceDictionary>
 
 	</Application.Resources>

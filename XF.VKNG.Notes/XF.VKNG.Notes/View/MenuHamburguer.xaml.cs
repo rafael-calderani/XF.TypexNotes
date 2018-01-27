@@ -39,6 +39,10 @@ namespace XF.VKNG.Notes.View {
             btnAbout.Clicked += async (sender, e) => {
                 await App.Navigate(new SobreView());
             };
+
+            btnExit.Clicked += async (sender, e) => {
+                await App.Navigate(new SobreView());
+            };
         }
     }
 }

@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XF.VKNG.Notes.View.MainView"
              xmlns:pages="clr-namespace:XF.VKNG.Notes.View"
-             Title="VKNG Notes">
+             Title="TypeX"
+             BackgroundColor="{StaticResource backgroundColor}">
+    
   <MasterDetailPage.Master>
     <pages:MenuHamburguer x:Name="MasterPage" />
   </MasterDetailPage.Master>

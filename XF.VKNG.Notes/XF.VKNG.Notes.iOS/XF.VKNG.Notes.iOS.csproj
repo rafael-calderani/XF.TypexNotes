@@ -134,4 +134,70 @@
       <Name>XF.VKNG.Notes</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\editicon24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cancelicon24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\saveicon24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\shareicon24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\exiticon24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\abouticon24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\deleteicon24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\notesicon24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\twittericon24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lockicon24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\unlockicon24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\typexlogoandlabel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\shareicon24x24dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\exiticon24x24dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\abouticon24x24dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\deleteicon24x24dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\notesicon24x24dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\saveicon24x24dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cancelicon24x24dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\editicon24x24dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\menuheader.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\typexlogo128x128.png" />
+  </ItemGroup>
 </Project>

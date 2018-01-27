@@ -2,13 +2,17 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XF.VKNG.Notes.View.MenuHamburguer"
-             Title="TypeX Menu">
+             Title="TypeX Menu"
+             BackgroundColor="{StaticResource backgroundColor}"
+               >
     <ContentPage.Content>
-        <StackLayout>
-            <Button x:Name="btnNotes" Text="Anotações" />
-            <Button x:Name="btnShare" Text="Compartilhar o TypeX" />
-            <Button x:Name="btnDelete" Text="Apagar Tudo" />
-            <Button x:Name="btnAbout" Text="Sobre o TypeX" />
+        <StackLayout Orientation="Vertical" Spacing="0" Margin="0" Padding="0" VerticalOptions="Start">
+            <Image HeightRequest="250" Aspect="AspectFit" Source="menuheader.png" Margin="0"></Image>
+            <Button x:Name="btnNotes" Text="  Anotações" Style="{StaticResource btnNotes}" />
+            <Button x:Name="btnShare" Text="  Compartilhar o TypeX" Style="{StaticResource btnShare}"/>
+            <Button x:Name="btnDelete" Text="  Apagar Tudo" Style="{StaticResource btnDelete}"/>
+            <Button x:Name="btnAbout" Text="  Sobre o TypeX" Style="{StaticResource btnAbout}"/>
+            <Button x:Name="btnExit" Text="  Sair" Style="{StaticResource btnExit}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
