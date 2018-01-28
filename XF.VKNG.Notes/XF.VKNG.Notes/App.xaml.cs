@@ -4,13 +4,16 @@ using XF.VKNG.Notes.ViewModel;
 
 namespace XF.VKNG.Notes {
     public partial class App : Application {
-
-        public static string typexServiceURL = "http://vkngnotes.azurewebsites.net/";
         private static MasterDetailPage mainPage;
 
         public static async Task Navigate(Page page) {
             mainPage.IsPresented = false;
             await mainPage.Detail.Navigation.PushAsync(page);
+        }
+
+        public static async Task NavigateToRoot() {
+            mainPage.IsPresented = false;
+            await mainPage.Detail.Navigation.PopToRootAsync(true);
         }
 
         public App() {

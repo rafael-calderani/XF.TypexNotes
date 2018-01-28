@@ -13,7 +13,7 @@ namespace XF.VKNG.Notes.Model {
         void GetNotes(NoteViewModel vm);
     }
     public class Note {
-        private static string apiURL = App.typexServiceURL + "/api/Notes";
+        private static string apiURL = "http://vkngnotes.azurewebsites.net/api/Notes";
 
         //[PrimaryKey, AutoIncrement]
         public int Id { get; set; }
@@ -37,10 +37,11 @@ namespace XF.VKNG.Notes.Model {
             List<Note> noteList = new List<Note>();
 
             using (HttpClient httpClient = new HttpClient()) {
-                var response = await httpClient.GetAsync(apiURL);
+                var response = await httpClient.GetAsync(apiURL, HttpCompletionOption.ResponseContentRead);
                 var json = await response.Content.ReadAsStringAsync();
 
                 noteList = JsonConvert.DeserializeObject<List<Note>>(json);
+                noteList.RemoveAll(n => n.UserId != UsuarioViewModel.Atual.Id);
             }
 
             return noteList;
@@ -53,7 +54,7 @@ namespace XF.VKNG.Notes.Model {
         public static async Task<bool> Insert(Note n) {
             bool result = false;
             n.CriadoEm = DateTime.Now;
-            n.UserId = Usuario.Atual.Id;
+            n.UserId = UsuarioViewModel.Atual.Id;
 
             using (HttpClient httpClient = new HttpClient()) {
                 string noteJson = JsonConvert.SerializeObject(n);
@@ -68,10 +69,11 @@ namespace XF.VKNG.Notes.Model {
 
         public static async Task<bool> Update(Note n) {
             bool result = false;
-            // TODO: check this update method
+
             using (HttpClient httpClient = new HttpClient()) {
                 string noteJson = JsonConvert.SerializeObject(n);
-                HttpResponseMessage response = await httpClient.PutAsync(apiURL + "/" + n.Id, new StringContent(noteJson));
+                HttpResponseMessage response = await httpClient.PutAsync(string.Concat(apiURL, "/", n.Id),
+                    new StringContent(noteJson, Encoding.UTF8, "application/json"));
 
                 result = response.IsSuccessStatusCode;
             }
@@ -81,17 +83,34 @@ namespace XF.VKNG.Notes.Model {
         }
 
         public static async Task<bool> Save(Note n) {
-            if (n.CriadoEm == null) return await Insert(n);
+            if (n.Id > 0) return await Update(n);
 
-            return await Update(n);
+            return await Insert(n);
         }
 
         public static async Task<bool> Delete(int noteId) {
             bool result = false;
             using (HttpClient httpClient = new HttpClient()) {
-                HttpResponseMessage response = await httpClient.DeleteAsync(apiURL + "/" + noteId);
+                HttpResponseMessage response = await httpClient.DeleteAsync(string.Concat(apiURL, "/", noteId));
 
                 result = response.IsSuccessStatusCode;
+            }
+
+            return result;
+        }
+
+        public static async Task<bool> DeleteByUser(int userId) {
+            bool result = false;
+            List<Note> noteList = new List<Note>();
+
+            using (HttpClient httpClient = new HttpClient()) {
+                var response = await httpClient.GetAsync(apiURL, HttpCompletionOption.ResponseContentRead);
+                var json = await response.Content.ReadAsStringAsync();
+
+                noteList = JsonConvert.DeserializeObject<List<Note>>(json);
+                foreach(Note n in noteList) {
+                    if (n.UserId == userId) result = await Delete(n.Id);
+                }
             }
 
             return result;

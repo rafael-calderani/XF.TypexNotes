@@ -2,13 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XF.VKNG.Notes.View.CadastroUsuarioView"
-             BackgroundColor="{StaticResource backgroundColor}">
+             BackgroundColor="{StaticResource backgroundColor}"
+             Title="Adicionar novo usuário">
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" Padding="20">
-            <StackLayout Orientation="Horizontal" Spacing="0" HorizontalOptions="Start" Margin="0,0,0,50">
-                <Image Source="typexlogo128x128" HeightRequest="64"></Image>
-                <Label Text="Adicionar novo usuário" Margin="10,24,0,0" FontSize="Medium"></Label>
-            </StackLayout>
+            <Image x:Name="imgIcon" Aspect="AspectFit" HorizontalOptions="FillAndExpand" HeightRequest="120" Source="typexlogoandlabel.png"/>
             <Entry x:Name="txtEmail" Placeholder="E-mail" Keyboard="Email" />
             <Entry x:Name="txtPassword" Placeholder="Password" IsPassword="True" />
             <Entry x:Name="txtConfirmPassword" Placeholder="Confirmar Password" IsPassword="True" />

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XF.VKNG.Notes.Model;
+using XF.VKNG.Notes.ViewModel;
 
 namespace XF.VKNG.Notes.View {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -15,25 +16,35 @@ namespace XF.VKNG.Notes.View {
             InitializeComponent();
         }
 
+        protected override void OnAppearing() {
+            base.OnAppearing();
+            NavigationPage.SetHasBackButton(this, false);
+            //NavigationPage.SetHasNavigationBar(this, false);
+        }
+
+        protected override void OnDisappearing() {
+            //NavigationPage.SetHasNavigationBar(this, true);
+            base.OnDisappearing();
+        }
+
         private async void btnLogin_Clicked(object sender, EventArgs e) {
-            Usuario usuario = new Usuario() {
+            User usuario = new User() {
                 Email = txtEmail.Text,
                 Senha = txtPassword.Text
             };
-            bool loginSuccessful = await Usuario.Login(usuario);
+            bool loginSuccessful = await UsuarioViewModel.Login(usuario);
 
             if (!loginSuccessful) {
-                // TODO: Show popup message at the top of the screen
                 await DisplayAlert("Login", "Email ou senha inválidos, favor tentar novamente.", "Ok");
                 return;
             }
-
-            var page = new ListagemNoteView();
-            await App.Navigate(page);
+            
+            await App.NavigateToRoot();
         }
 
-        private async void btnRegister_Clicked(object sener, EventArgs e) {
-            await App.Navigate(new CadastroUsuarioView());
+        private async void btnRegister_Clicked(object sender, EventArgs e) {
+            var page = new CadastroUsuarioView();
+            await App.Navigate(page);
         }
     }
 }

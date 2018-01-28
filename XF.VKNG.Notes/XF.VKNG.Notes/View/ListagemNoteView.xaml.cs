@@ -12,26 +12,18 @@ using XF.VKNG.Notes.ViewModel;
 namespace XF.VKNG.Notes.View {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ListagemNoteView : ContentPage {
-        public NoteViewModel notesVM = new NoteViewModel();
 
         public ListagemNoteView() {
-            this.BindingContext = notesVM;
-
             InitializeComponent();
-
-
-            // TODO: melhorar 
-            //remove back
-            NavigationPage.SetHasBackButton(this, false);
-
-            INote lista = DependencyService.Get<INote>();
-            lista.GetNotes(notesVM);
         }
 
         protected override async void OnAppearing() {
             base.OnAppearing();
 
-            listagemNote.ItemsSource = await Note.List();
+            if (UsuarioViewModel.Atual.Id == 0) App.Navigate(new LoginView());
+            else {
+                listagemNote.ItemsSource = await Note.List();
+            }
         }
 
         #region Events
@@ -52,10 +44,10 @@ namespace XF.VKNG.Notes.View {
 
         #region Methods
 
-        private void NavigateToDetails(Note note) {
+        private async void NavigateToDetails(Note note) {
             var page = new DetalheNoteView();
             page.BindingContext = note;
-            Navigation.PushAsync(page);
+            await App.Navigate(page);
         }
 
         #endregion

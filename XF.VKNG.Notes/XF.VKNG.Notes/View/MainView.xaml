@@ -11,7 +11,7 @@
   </MasterDetailPage.Master>
   <MasterDetailPage.Detail>
     <NavigationPage>
-      <x:Arguments><pages:LoginView /></x:Arguments>
+            <x:Arguments><pages:ListagemNoteView /></x:Arguments>
     </NavigationPage>
   </MasterDetailPage.Detail>
 </MasterDetailPage>

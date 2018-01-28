@@ -8,23 +8,10 @@
         <ToolbarItem Text="+ Nova Nota" Clicked="tbNewNote_Clicked" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <ListView x:Name="listagemNote" Margin="20" SelectedItem="{Binding Note}">
+        <ListView x:Name="listagemNote" Margin="20" SelectedItem="{Binding Note}" ItemTapped="listagemNote_ItemTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
-                        <ViewCell.ContextActions>
-                            <MenuItem Text="MenuOptions" BindingContext="{Binding BindingContext, Source={x:Reference Name=pageNoteList}}" 
-                                          Command="{Binding OnMenuOptionsCMD}" CommandParameter="{Binding Note}" />
-                            <MenuItem Text="Detalhes" BindingContext="{Binding BindingContext, Source={x:Reference Name=pageNoteList}}"
-                                          Command="{Binding OnDetalheCMD}" CommandParameter="{Binding Note}" />
-                        </ViewCell.ContextActions>
-                        <ViewCell.View>                           
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding Titulo}" FontSize="Medium" VerticalTextAlignment="Center" />
-                                <Label Text="{Binding CriadoEm}" FontSize="Medium" VerticalTextAlignment="Center" />
-                            </StackLayout>
-                        </ViewCell.View>
-                    </ViewCell>
+                    <TextCell  Text="{Binding Titulo}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

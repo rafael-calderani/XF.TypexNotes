@@ -16,7 +16,10 @@
                     <Switch x:Name="swSenha" IsToggled="False"  />
                 </StackLayout>
                 <Entry Placeholder="Senha" IsPassword="True" Text="{Binding Senha, Mode=TwoWay}" IsVisible="{Binding Source={x:Reference swSenha}, Path=IsToggled}" />
-                <Button x:Name="btnSalvar" Text="Salvar" Clicked="btnSalvar_ClickedAsync" />
+                <StackLayout Orientation="Horizontal">
+                    <Button x:Name="btnExcluir" Text="Excluir" Clicked="btnExcluir_Clicked" />
+                    <Button x:Name="btnSalvar" Text="Salvar" Clicked="btnSalvar_Clicked" />
+                </StackLayout>
             </StackLayout>
         </RelativeLayout>
     </ContentPage.Content>

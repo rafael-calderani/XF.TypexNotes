@@ -16,6 +16,9 @@ namespace XF.VKNG.Notes.View {
         private Note note = null;
         public DetalheNoteView() {
             InitializeComponent();
+        }
+        protected override void OnAppearing() {
+            base.OnAppearing();
 
             if (BindingContext != null) { // Edição
                 this.note = BindingContext as Note;
@@ -30,21 +33,20 @@ namespace XF.VKNG.Notes.View {
 
         //exemplo de geolocation para salvar as notas
         async Task GetLocation() {
-            var locator = CrossGeolocator.Current;
-            locator.DesiredAccuracy = 50;
-            var position = await locator.GetPositionAsync(TimeSpan.FromSeconds(100));
-            
-            note.Latitude = position.Latitude;
-            note.Longitude = position.Longitude;
+            if (CrossGeolocator.IsSupported) {
+                var locator = CrossGeolocator.Current;
+                locator.DesiredAccuracy = 50;
+                var position = await locator.GetPositionAsync(TimeSpan.FromSeconds(100));
+
+                note.Latitude = position.Latitude;
+                note.Longitude = position.Longitude;
+            }
         }
 
-        private async void btnSalvar_ClickedAsync(object sender, EventArgs e) {
+        private async void btnSalvar_Clicked(object sender, EventArgs e) {
             string msg = "Registro salvo com sucesso.";
 
-            await GetLocation();
-
-            note.Titulo = txtTitulo.Text;
-            note.Detalhes = txtDetalhes.Text;
+            if (note.Id == 0) await GetLocation(); // atualiza local apenas para notas novas
 
             bool result = await Note.Save(note);
 
@@ -52,6 +54,16 @@ namespace XF.VKNG.Notes.View {
                 msg = "Ocorreu um erro ao salvar o registro.";
             }
             await DisplayAlert("Salvar", msg, "Ok");
+        }
+
+        private async void btnExcluir_Clicked(object sender, EventArgs e) {
+            string msg = "Registro excluido com sucesso.";
+
+            if (!await Note.Delete(note.Id)) {
+                msg = "Ocorreu um erro ao excluir o registro.";
+            }
+            await DisplayAlert("Salvar", msg, "Ok");
+            await App.Navigate(new ListagemNoteView());
         }
     }
 }
