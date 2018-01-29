@@ -5,13 +5,14 @@
              Title="TypeX Login">
     <ContentPage.Content>
         <ScrollView Orientation="Vertical">
-        <StackLayout VerticalOptions="Center" Orientation="Vertical">
-            <Image x:Name="imgIcon" Aspect="AspectFit" HorizontalOptions="FillAndExpand" HeightRequest="120" Source="typexlogoandlabel.png"/>
-            <Entry x:Name="txtEmail" Placeholder="E-mail" Keyboard="Email" />
-            <Entry x:Name="txtPassword" Placeholder="Password" IsPassword="True" />
-            <Button x:Name="btnLogin" Text="Login" Clicked="btnLogin_Clicked" /> 
-            <Button x:Name="btnRegister" Text="Cadastrar Usuário" Style="{StaticResource buttonSimple}"  Clicked="btnRegister_Clicked" />
-        </StackLayout>
+            <StackLayout VerticalOptions="Center" Orientation="Vertical">
+                <Image x:Name="imgIcon" Aspect="AspectFit" HorizontalOptions="FillAndExpand" HeightRequest="120" Source="typexlogoandlabel.png"/>
+                <Entry x:Name="txtEmail" Placeholder="E-mail" Keyboard="Email" />
+                <Entry x:Name="txtPassword" Placeholder="Password" IsPassword="True" />
+                <Button x:Name="btnLogin" Text="Login" Clicked="btnLogin_Clicked" />
+                <Button x:Name="btnRegister" Text="Cadastrar Usuário" Style="{StaticResource buttonSimple}"  Clicked="btnRegister_Clicked" />
+                <ActivityIndicator x:Name="indProgress" Color="DarkSlateBlue" IsRunning="false" />
+            </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

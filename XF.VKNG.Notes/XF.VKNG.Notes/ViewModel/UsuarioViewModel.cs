@@ -25,7 +25,7 @@ namespace XF.VKNG.Notes.ViewModel {
             }
         }
 
-        public static async Task<bool> IsValid(User u) {
+        public static bool IsValid(User u) {
             bool result = !string.IsNullOrEmpty(u.Email) && !string.IsNullOrEmpty(u.Senha);
 
             return result;

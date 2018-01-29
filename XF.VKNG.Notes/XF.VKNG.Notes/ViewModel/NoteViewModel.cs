@@ -13,68 +13,90 @@ using Xamarin.Forms;
 using XF.VKNG.Notes.Model;
 
 namespace XF.VKNG.Notes.ViewModel {
-    public class NoteViewModel : INotifyPropertyChanged {
-        public Note Note { get; set; }
+    public class NoteViewModel {
+        private static string apiURL = "http://vkngnotes.azurewebsites.net/api/Notes";
 
+        public static async Task<List<Note>> List() {
+            List<Note> noteList = new List<Note>();
 
-        #region UI Events
+            using (HttpClient httpClient = new HttpClient()) {
+                using (var response = await httpClient.GetAsync(apiURL, HttpCompletionOption.ResponseContentRead)) {
+                    var json = await response.Content.ReadAsStringAsync();
 
-        public OnDetalheCMD OnDetalheCMD { get; }
-        public OnMenuOptionsCMD OnMenuOptionsCMD { get; }
-
-        public void GetDetalhe(Note paramNote) {
-            if (paramNote != null) {
-                App.Current.MainPage.Navigation.PushAsync(
-                    new View.DetalheNoteView() { BindingContext = paramNote });
+                    noteList = JsonConvert.DeserializeObject<List<Note>>(json);
+                    noteList.RemoveAll(n => n.UserId != UsuarioViewModel.Atual.Id);
+                }
             }
+
+            return noteList;
         }
 
-        #endregion
-
-        public NoteViewModel() {
-            this.OnDetalheCMD = new OnDetalheCMD(this);
-            this.OnMenuOptionsCMD = new OnMenuOptionsCMD(this);
+        public static bool IsValid(Note n) {
+            return !string.IsNullOrEmpty(n.Titulo);
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void EventPropertyChanged([CallerMemberName] string propertyName = null) {
-            if (this.PropertyChanged != null) {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        public static async Task<bool> Insert(Note n) {
+            bool result = false;
+            n.UserId = UsuarioViewModel.Atual.Id;
+
+            using (HttpClient httpClient = new HttpClient()) {
+                string noteJson = JsonConvert.SerializeObject(n);
+
+                HttpResponseMessage response = await httpClient.PostAsync(apiURL, new StringContent(noteJson, Encoding.UTF8, "application/json"));
+
+                result = response.IsSuccessStatusCode;
             }
-        }
-    }
 
-    public class OnDetalheCMD : ICommand {
-        private NoteViewModel noteVM;
-        public OnDetalheCMD(NoteViewModel paramVM) {
-            noteVM = paramVM;
+            return result;
         }
-        public event EventHandler CanExecuteChanged;
-        public void DetalheCanExecuteChanged() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);
-        public bool CanExecute(object parameter) {
-            if (parameter != null) return true;
 
-            return false;
-        }
-        public void Execute(object parameter) {
-            noteVM.GetDetalhe(parameter as Note);
-        }
-    }
+        public static async Task<bool> Update(Note n) {
+            bool result = false;
 
-    public class OnMenuOptionsCMD : ICommand {
-        private NoteViewModel noteVM;
-        public OnMenuOptionsCMD(NoteViewModel paramVM) {
-            noteVM = paramVM;
-        }
-        public event EventHandler CanExecuteChanged;
-        public void MenuOptionsCanExecuteChanged() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);
-        public bool CanExecute(object parameter) {
-            if (parameter != null) return true;
+            using (HttpClient httpClient = new HttpClient()) {
+                string noteJson = JsonConvert.SerializeObject(n);
+                HttpResponseMessage response = await httpClient.PostAsync(string.Concat(apiURL, "/", n.Id),
+                    new StringContent(noteJson, Encoding.UTF8, "application/json"));
 
-            return false;
+                result = response.IsSuccessStatusCode;
+            }
+
+            return result;
+
         }
-        public void Execute(object parameter) {
-            //TODO: Show Options Menu for the notes list
+
+        public static async Task<bool> Save(Note n) {
+            if (n.Id > 0) return await Update(n);
+
+            return await Insert(n);
+        }
+
+        public static async Task<bool> Delete(int noteId) {
+            bool result = false;
+            using (HttpClient httpClient = new HttpClient()) {
+                HttpResponseMessage response = await httpClient.DeleteAsync(string.Concat(apiURL, "/", noteId));
+
+                result = response.IsSuccessStatusCode;
+            }
+
+            return result;
+        }
+
+        public static async Task<bool> DeleteByUser(int userId) {
+            bool result = false;
+            List<Note> noteList = new List<Note>();
+
+            using (HttpClient httpClient = new HttpClient()) {
+                var response = await httpClient.GetAsync(apiURL, HttpCompletionOption.ResponseContentRead);
+                var json = await response.Content.ReadAsStringAsync();
+
+                noteList = JsonConvert.DeserializeObject<List<Note>>(json);
+                foreach (Note n in noteList) {
+                    if (n.UserId == userId) result = await Delete(n.Id);
+                }
+            }
+
+            return result;
         }
     }
 }

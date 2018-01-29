@@ -20,10 +20,10 @@ namespace XF.VKNG.Notes.View {
         protected override async void OnAppearing() {
             base.OnAppearing();
 
-            if (UsuarioViewModel.Atual.Id == 0) App.Navigate(new LoginView());
-            else {
-                listagemNote.ItemsSource = await Note.List();
-            }
+            if (UsuarioViewModel.Atual == null || UsuarioViewModel.Atual.Id == 0)
+                await App.Navigate(new LoginView());
+
+            listagemNote.ItemsSource = await NoteViewModel.List();
         }
 
         #region Events

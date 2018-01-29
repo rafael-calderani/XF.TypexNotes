@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using XF.VKNG.Notes.Model;
 using XF.VKNG.Notes.ViewModel;
 
 namespace XF.VKNG.Notes.View {
@@ -17,7 +16,7 @@ namespace XF.VKNG.Notes.View {
 
             btnNotes.Clicked += async (sender, e) => {
                 if (UsuarioViewModel.Atual.Id > 0) {
-                    await App.Navigate(new ListagemNoteView());
+                    await App.NavigateToRoot();
                 }
                 else {
                     await DisplayAlert("Aviso", "É necessário estar logado para realizar esta ação.", "Ok");
@@ -30,9 +29,9 @@ namespace XF.VKNG.Notes.View {
 
             btnDelete.Clicked += async (sender, e) => {
                 if (UsuarioViewModel.Atual.Id > 0) {
-                    //TODO: Excluir todas as notas do usuario logado
+                    // Exclui todas as notas do usuario logado
                     bool apagar = await DisplayAlert("Confrmar", "Você tem certeza que deseja apagar todas as suas notas?", "Sim", "Não");
-                    if (apagar) await Note.DeleteByUser(UsuarioViewModel.Atual.Id);
+                    if (apagar) await NoteViewModel.DeleteByUser(UsuarioViewModel.Atual.Id);
                 }
                 else {
                     await DisplayAlert("Aviso", "É necessário estar logado para realizar esta ação.", "Ok");
@@ -40,10 +39,6 @@ namespace XF.VKNG.Notes.View {
             };
 
             btnAbout.Clicked += async (sender, e) => {
-                await App.Navigate(new SobreView());
-            };
-
-            btnExit.Clicked += async (sender, e) => {
                 await App.Navigate(new SobreView());
             };
         }

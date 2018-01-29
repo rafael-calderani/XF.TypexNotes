@@ -9,6 +9,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using XF.VKNG.Notes.Model;
+using XF.VKNG.Notes.ViewModel;
 
 namespace XF.VKNG.Notes.View {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -45,25 +46,30 @@ namespace XF.VKNG.Notes.View {
 
         private async void btnSalvar_Clicked(object sender, EventArgs e) {
             string msg = "Registro salvo com sucesso.";
+            indProgress.IsRunning = true;
 
             if (note.Id == 0) await GetLocation(); // atualiza local apenas para notas novas
 
-            bool result = await Note.Save(note);
+            bool result = await NoteViewModel.Save(note);
 
             if (!result) {
                 msg = "Ocorreu um erro ao salvar o registro.";
             }
+            indProgress.IsRunning = false;
             await DisplayAlert("Salvar", msg, "Ok");
+            await App.NavigateToRoot();
         }
 
         private async void btnExcluir_Clicked(object sender, EventArgs e) {
             string msg = "Registro excluido com sucesso.";
+            indProgress.IsRunning = true;
 
-            if (!await Note.Delete(note.Id)) {
+            if (!await NoteViewModel.Delete(note.Id)) {
                 msg = "Ocorreu um erro ao excluir o registro.";
             }
-            await DisplayAlert("Salvar", msg, "Ok");
-            await App.Navigate(new ListagemNoteView());
+            indProgress.IsRunning = false;
+            await DisplayAlert("Excluir", msg, "Ok");
+            await App.NavigateToRoot();
         }
     }
 }

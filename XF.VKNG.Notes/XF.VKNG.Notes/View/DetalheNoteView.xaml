@@ -4,9 +4,9 @@
              x:Class="XF.VKNG.Notes.View.DetalheNoteView"
              BackgroundColor="{StaticResource backgroundColor}">
     <ContentPage.Content>
-        <RelativeLayout x:Name="RootLayout" >
-            <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="0">
-
+        <ScrollView Orientation="Vertical">
+            <StackLayout Orientation="Vertical" VerticalOptions="Center">
+                
                 <Entry x:Name="txtTitulo" Placeholder="Titulo da nota" FontSize="Medium" Text="{Binding Titulo, Mode=TwoWay}" />
 
                 <Editor x:Name="txtDetalhes" VerticalOptions="FillAndExpand" Keyboard="Chat" Text="{Binding Detalhes, Mode=TwoWay}"></Editor>
@@ -15,12 +15,16 @@
                     <Label Text="Protegida por senha?" />
                     <Switch x:Name="swSenha" IsToggled="False"  />
                 </StackLayout>
+                
                 <Entry Placeholder="Senha" IsPassword="True" Text="{Binding Senha, Mode=TwoWay}" IsVisible="{Binding Source={x:Reference swSenha}, Path=IsToggled}" />
-                <StackLayout Orientation="Horizontal">
-                    <Button x:Name="btnExcluir" Text="Excluir" Clicked="btnExcluir_Clicked" />
-                    <Button x:Name="btnSalvar" Text="Salvar" Clicked="btnSalvar_Clicked" />
+                
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Button x:Name="btnExcluir" Text="Excluir" Clicked="btnExcluir_Clicked" Margin="10" />
+                    <Button x:Name="btnSalvar" Text="Salvar" Clicked="btnSalvar_Clicked" Margin="10" />
                 </StackLayout>
+                
+                <ActivityIndicator x:Name="indProgress" Color="DarkSlateBlue" IsRunning="false" />
             </StackLayout>
-        </RelativeLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

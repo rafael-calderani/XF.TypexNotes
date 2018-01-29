@@ -17,13 +17,14 @@ namespace XF.VKNG.Notes.View {
         }
 
         private async void btnRegister_Clicked(object sener, EventArgs e) {
+            indProgress.IsRunning = true;
             string msg = "Registro salvo com sucesso.";
             User u = new User() {
                 Email = txtEmail.Text,
                 Senha = txtPassword.Text
             };
 
-            if (await UsuarioViewModel.IsValid(u) && txtPassword.Text == txtConfirmPassword.Text) {
+            if (UsuarioViewModel.IsValid(u) && txtPassword.Text == txtConfirmPassword.Text) {
                 if (await UsuarioViewModel.Exists(u.Email) != null) {
                     msg = "Um usuário com este e-mail já existe, favor confirmar os dados e tentar novamente.";
                 }
@@ -38,6 +39,7 @@ namespace XF.VKNG.Notes.View {
                 msg = "Registro inválido, favor confirmar os dados e tentar novamente.";
             }
 
+            indProgress.IsRunning = false;
             await DisplayAlert("Cadastro", msg, "Ok");
         }
     }

@@ -46,7 +46,7 @@
             </Style>
             
             <Style TargetType="StackLayout">
-                <Setter Property="Margin" Value="10,20,10,20" />
+                <Setter Property="Margin" Value="10,20" />
             </Style>
             
             <Style TargetType="Label">

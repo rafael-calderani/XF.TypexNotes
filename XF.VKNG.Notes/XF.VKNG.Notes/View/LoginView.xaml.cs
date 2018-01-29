@@ -19,15 +19,14 @@ namespace XF.VKNG.Notes.View {
         protected override void OnAppearing() {
             base.OnAppearing();
             NavigationPage.SetHasBackButton(this, false);
-            //NavigationPage.SetHasNavigationBar(this, false);
         }
 
         protected override void OnDisappearing() {
-            //NavigationPage.SetHasNavigationBar(this, true);
             base.OnDisappearing();
         }
 
         private async void btnLogin_Clicked(object sender, EventArgs e) {
+            indProgress.IsRunning = true;
             User usuario = new User() {
                 Email = txtEmail.Text,
                 Senha = txtPassword.Text
@@ -38,7 +37,9 @@ namespace XF.VKNG.Notes.View {
                 await DisplayAlert("Login", "Email ou senha inválidos, favor tentar novamente.", "Ok");
                 return;
             }
-            
+
+            indProgress.IsRunning = false;
+
             await App.NavigateToRoot();
         }
 
