@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿//using Acr.UserDialogs;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using XF.VKNG.Notes.ViewModel;
 

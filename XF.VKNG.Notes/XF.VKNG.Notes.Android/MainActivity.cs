@@ -6,6 +6,9 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+//using Acr.UserDialogs;
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.Android;
 
 namespace XF.VKNG.Notes.Droid {
     [Activity(Label = "XF.VKNG.Notes", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
@@ -17,6 +20,9 @@ namespace XF.VKNG.Notes.Droid {
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+
+            //UserDialogs.Init(this);
+
             LoadApplication(new App());
         }
     }

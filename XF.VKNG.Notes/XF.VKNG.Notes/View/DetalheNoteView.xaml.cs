@@ -61,8 +61,12 @@ namespace XF.VKNG.Notes.View {
         }
 
         private async void btnExcluir_Clicked(object sender, EventArgs e) {
-            string msg = "Registro excluido com sucesso.";
+            bool excluir = await DisplayAlert("Confirmar", "Tem certeza que deseja excluir esta nota?", "Sim", "Não");
+
+            if (!excluir) return;
+
             indProgress.IsRunning = true;
+            string msg = "Registro excluido com sucesso.";
 
             if (!await NoteViewModel.Delete(note.Id)) {
                 msg = "Ocorreu um erro ao excluir o registro.";

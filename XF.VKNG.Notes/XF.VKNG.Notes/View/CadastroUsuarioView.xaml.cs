@@ -25,7 +25,7 @@ namespace XF.VKNG.Notes.View {
             };
 
             if (UsuarioViewModel.IsValid(u) && txtPassword.Text == txtConfirmPassword.Text) {
-                if (await UsuarioViewModel.Exists(u.Email) != null) {
+                if (await UsuarioViewModel.Exists(u.Email)) {
                     msg = "Um usuário com este e-mail já existe, favor confirmar os dados e tentar novamente.";
                 }
                 else {

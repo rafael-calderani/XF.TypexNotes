@@ -25,6 +25,10 @@ namespace XF.VKNG.Notes.ViewModel {
             }
         }
 
+        public static void Logout() {
+            atual = null;
+        }
+
         public static bool IsValid(User u) {
             bool result = !string.IsNullOrEmpty(u.Email) && !string.IsNullOrEmpty(u.Senha);
 

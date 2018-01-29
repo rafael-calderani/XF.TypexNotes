@@ -40,6 +40,9 @@ namespace XF.VKNG.Notes.View {
 
             indProgress.IsRunning = false;
 
+            ListagemNoteView rootView = ((App.Current.MainPage as MasterDetailPage).Detail as NavigationPage).RootPage as ListagemNoteView;
+            rootView.RefreshListSource(); // Atualiza a lista de notas antes de exibir para o usuário
+
             await App.NavigateToRoot();
         }
 

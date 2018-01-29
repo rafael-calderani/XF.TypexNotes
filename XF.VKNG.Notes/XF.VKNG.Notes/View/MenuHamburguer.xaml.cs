@@ -41,6 +41,16 @@ namespace XF.VKNG.Notes.View {
             btnAbout.Clicked += async (sender, e) => {
                 await App.Navigate(new SobreView());
             };
+
+            btnExit.Clicked += async (sender, e) => {
+                UsuarioViewModel.Logout();
+
+
+                ListagemNoteView rootView = ((App.Current.MainPage as MasterDetailPage).Detail as NavigationPage).RootPage as ListagemNoteView;
+                rootView.RefreshListSource(); // Atualiza a lista de notas antes de exibir para o usuário
+
+                //await App.NavigateToRoot();
+            };
         }
     }
 }
