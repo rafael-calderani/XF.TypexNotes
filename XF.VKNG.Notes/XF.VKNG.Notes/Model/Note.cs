@@ -26,5 +26,13 @@ namespace XF.VKNG.Notes.Model {
         public string Senha { get; set; }
 
         public int UserId { get; set; }
+
+        public bool TemSenha
+        {
+            get
+            {
+                return !string.IsNullOrEmpty(Senha);
+            }
+        }
     }
 }

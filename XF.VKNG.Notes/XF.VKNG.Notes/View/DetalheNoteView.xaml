@@ -7,20 +7,20 @@
         <ScrollView Orientation="Vertical">
             <StackLayout Orientation="Vertical" VerticalOptions="Center">
                 
-                <Entry x:Name="txtTitulo" Placeholder="Titulo da nota" FontSize="Medium" Text="{Binding Titulo, Mode=TwoWay}" />
+                <Entry x:Name="txtTitulo" Style="{StaticResource noteTitle}" Placeholder="Titulo" Text="{Binding Titulo, Mode=TwoWay}" />
 
-                <Editor x:Name="txtDetalhes" VerticalOptions="FillAndExpand" Keyboard="Chat" Text="{Binding Detalhes, Mode=TwoWay}"></Editor>
+                <Editor x:Name="txtDetalhes" VerticalOptions="FillAndExpand"  HeightRequest="120" Keyboard="Chat" Text="{Binding Detalhes, Mode=TwoWay}"></Editor>
                 
-                <StackLayout Orientation="Horizontal" Margin="0">
+                <StackLayout Orientation="Horizontal" Margin="10">
                     <Label Text="Protegida por senha?" />
-                    <Switch x:Name="swSenha" IsToggled="False"  />
+                    <Switch x:Name="swSenha" IsToggled="{Binding TemSenha, Mode=TwoWay}" />
                 </StackLayout>
                 
-                <Entry Placeholder="Senha" IsPassword="True" Text="{Binding Senha, Mode=TwoWay}" IsVisible="{Binding Source={x:Reference swSenha}, Path=IsToggled}" />
+                <Entry Placeholder="Senha" IsPassword="True" Margin="3,10,3,10" Text="{Binding Senha, Mode=TwoWay}" IsVisible="{Binding Source={x:Reference swSenha}, Path=IsToggled}" />
                 
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                    <Button x:Name="btnExcluir" Text="Excluir" Clicked="btnExcluir_Clicked" Margin="10" />
-                    <Button x:Name="btnSalvar" Text="Salvar" Clicked="btnSalvar_Clicked" Margin="10" />
+                    <Button x:Name="btnExcluir" Text="Excluir" Clicked="btnExcluir_Clicked" Margin="3,10,3,10" />
+                    <Button x:Name="btnSalvar" Text="Salvar" Clicked="btnSalvar_Clicked" Margin="3,10,3,10" />
                 </StackLayout>
                 
                 <ActivityIndicator x:Name="indProgress" Color="DarkSlateBlue" IsRunning="false" />

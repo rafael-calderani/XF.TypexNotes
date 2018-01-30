@@ -37,12 +37,25 @@
                 <Setter Property="Margin" Value="0,3,0,3"></Setter>
             </Style>
 
+            <Style x:Key="noteTitle" TargetType="Entry">
+                <Setter Property="TextColor" Value="#FF8400"></Setter>
+                <Setter Property="PlaceholderColor" Value="{StaticResource placeholderColor}"></Setter>
+                <Setter Property="FontAttributes" Value="Bold"></Setter>
+                <Setter Property="BackgroundColor" Value="{StaticResource entryBackgroundColor}"></Setter>
+                <Setter Property="Margin" Value="10,3,0,3"></Setter>
+            </Style>
+
+            <Style TargetType="Editor">
+                <Setter Property="BackgroundColor" Value="#FEEBD7"></Setter>
+                <Setter Property="Margin" Value="10,3,10,3"></Setter> 
+            </Style> 
+
             <Style x:Key="buttonSimple" TargetType="Button">
                 <Setter Property="TextColor" Value="{StaticResource simpleButtonTextColor}" />
                 <Setter Property="BorderColor" Value="Transparent" />
                 <Setter Property="BackgroundColor" Value="{StaticResource simpleButtonColor}" />
                 <Setter Property="Margin" Value="0, 10, 0, 0" />
-                <Setter Property="HorizontalOptions" Value="EndAndExpand" />
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
             </Style>
             
             <Style TargetType="StackLayout">
