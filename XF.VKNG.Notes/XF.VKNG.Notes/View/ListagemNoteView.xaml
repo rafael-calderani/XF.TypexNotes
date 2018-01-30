@@ -11,7 +11,7 @@
         <ListView x:Name="listagemNote" Margin="20" SelectedItem="{Binding Note}" ItemTapped="listagemNote_ItemTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell  Text="{Binding Titulo}" />
+                    <ImageCell ImageSource="{Binding ImagemCadeado}" Text="{Binding Titulo}" Height="16"  />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

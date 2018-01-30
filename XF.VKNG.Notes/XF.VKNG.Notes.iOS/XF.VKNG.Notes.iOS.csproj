@@ -165,12 +165,6 @@
     <BundleResource Include="Resources\twittericon24x24.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\lockicon24x24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\unlockicon24x24.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\typexlogoandlabel.png" />
   </ItemGroup>
   <ItemGroup>
@@ -202,5 +196,19 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\typexlogo128x128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lock128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\unlock128.png" />
   </ItemGroup>
 </Project>

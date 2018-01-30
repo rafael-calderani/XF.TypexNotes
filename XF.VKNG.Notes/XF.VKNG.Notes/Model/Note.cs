@@ -27,11 +27,15 @@ namespace XF.VKNG.Notes.Model {
 
         public int UserId { get; set; }
 
-        public bool TemSenha
-        {
-            get
-            {
+        public bool TemSenha {
+            get {
                 return !string.IsNullOrEmpty(Senha);
+            }
+        }
+
+        public string ImagemCadeado {
+            get {
+                return TemSenha ? "lock128.png" : "unlock128.png";
             }
         }
     }

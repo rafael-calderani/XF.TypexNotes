@@ -17,7 +17,7 @@ namespace XF.VKNG.Notes.View {
         }
 
         private async void btnRegister_Clicked(object sener, EventArgs e) {
-            indProgress.IsRunning = true;
+            Utils.ChangeState(this.Content as ILayoutController, indProgress, true);
             string msg = "Registro salvo com sucesso.";
             User u = new User() {
                 Email = txtEmail.Text,
@@ -39,7 +39,7 @@ namespace XF.VKNG.Notes.View {
                 msg = "Registro inválido, favor confirmar os dados e tentar novamente.";
             }
 
-            indProgress.IsRunning = false;
+            Utils.ChangeState(this.Content as ILayoutController, indProgress, false);
             await DisplayAlert("Cadastro", msg, "Ok");
         }
     }

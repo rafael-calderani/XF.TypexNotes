@@ -33,12 +33,13 @@ namespace XF.VKNG.Notes.View {
             };
             bool loginSuccessful = await UsuarioViewModel.Login(usuario);
 
+            indProgress.IsRunning = false;
+
             if (!loginSuccessful) {
                 await DisplayAlert("Login", "Email ou senha inválidos, favor tentar novamente.", "Ok");
                 return;
             }
 
-            indProgress.IsRunning = false;
 
             ListagemNoteView rootView = ((App.Current.MainPage as MasterDetailPage).Detail as NavigationPage).RootPage as ListagemNoteView;
             rootView.RefreshListSource(); // Atualiza a lista de notas antes de exibir para o usuário

@@ -19,10 +19,11 @@
                 <Entry Placeholder="Senha" IsPassword="True" Margin="3,10,3,10" Text="{Binding Senha, Mode=TwoWay}" IsVisible="{Binding Source={x:Reference swSenha}, Path=IsToggled}" />
                 
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                    <Button x:Name="btnExcluir" Text="Excluir" Clicked="btnExcluir_Clicked" Margin="3,10,3,10" />
-                    <Button x:Name="btnSalvar" Text="Salvar" Clicked="btnSalvar_Clicked" Margin="3,10,3,10" />
+                    <Button x:Name="btnExcluir" Text="Excluir" Clicked="btnExcluir_Clicked" Margin="3,10" />
+                    <Button x:Name="btnSalvar" Text="Salvar" Clicked="btnSalvar_Clicked" Margin="3,10" />
                 </StackLayout>
-                
+                <Button x:Name="btnMapa" Text="Ver no Mapa" Clicked="btnMapa_Clicked" Margin="3,10" />
+
                 <ActivityIndicator x:Name="indProgress" Color="DarkSlateBlue" IsRunning="false" />
             </StackLayout>
         </ScrollView>

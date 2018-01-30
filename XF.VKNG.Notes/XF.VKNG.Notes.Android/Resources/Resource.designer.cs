@@ -2700,7 +2700,7 @@ namespace XF.VKNG.Notes.Droid
 			public const int icon = 2130837750;
 			
 			// aapt resource value: 0x7f0200f7
-			public const int lockicon24x24 = 2130837751;
+			public const int lock128 = 2130837751;
 			
 			// aapt resource value: 0x7f0200f8
 			public const int menuheader = 2130837752;
@@ -2832,7 +2832,7 @@ namespace XF.VKNG.Notes.Droid
 			public const int typexlogoandlabel = 2130837792;
 			
 			// aapt resource value: 0x7f020121
-			public const int unlockicon24x24 = 2130837793;
+			public const int unlock128 = 2130837793;
 			
 			static Drawable()
 			{
