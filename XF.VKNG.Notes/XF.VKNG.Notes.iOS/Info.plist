@@ -9,8 +9,8 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
@@ -22,7 +22,7 @@
 	<key>MinimumOSVersion</key>
 	<string>10.3</string>
 	<key>CFBundleDisplayName</key>
-	<string>XF.VKNG.Notes</string>
+	<string>TypeX</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.yourcompany.XF.VKNG.Notes</string>
 	<key>CFBundleVersion</key>
@@ -51,8 +51,6 @@
 	<string>XF.VKNG.Notes</string>
 	<key>XSLaunchImageAssets</key>
 	<string>Resources/Media.xcassets/LaunchImages.launchimage</string>
-	<key>XSAppIconAssets</key>
-	<string>Resources/Media.xcassets/AppIcons.appiconset</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
@@ -60,5 +58,7 @@
 			<string>Document Type 1</string>
 		</dict>
 	</array>
+	<key>XSAppIconAssets</key>
+	<string>Resources/Media.xcassets/AppIcons.appiconset</string>
 </dict>
 </plist>

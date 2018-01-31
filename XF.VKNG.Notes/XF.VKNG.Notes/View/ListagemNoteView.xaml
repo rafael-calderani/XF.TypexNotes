@@ -3,17 +3,27 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Title="Suas Anotações"
              x:Name="pageNoteList"
-             x:Class="XF.VKNG.Notes.View.ListagemNoteView">
+             x:Class="XF.VKNG.Notes.View.ListagemNoteView"
+             BackgroundColor="{StaticResource backgroundColor}">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="+ Nova Nota" Clicked="tbNewNote_Clicked" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <ListView x:Name="listagemNote" Margin="20" SelectedItem="{Binding Note}" ItemTapped="listagemNote_ItemTapped">
+
+        <ListView x:Name="listagemNote" Margin="0" SelectedItem="{Binding Note}" ItemTapped="listagemNote_ItemTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ImageCell ImageSource="{Binding ImagemCadeado}" Text="{Binding Titulo}" Height="16"  />
+                    <ViewCell>
+                        <StackLayout BackgroundColor="#ffffff" Orientation="Vertical" Padding="0" Margin="0">
+                            <StackLayout Orientation="Horizontal" HeightRequest="34" Margin="0" BackgroundColor="#fff9ef" Padding="10">
+                                <Image Source="{Binding ImagemCadeado}" HeightRequest="32" Aspect="AspectFit" Margin="10,0,0,0" />
+                                <Label Text="{Binding Titulo}" TextColor="Black" Margin="4" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+     
     </ContentPage.Content>
 </ContentPage>
